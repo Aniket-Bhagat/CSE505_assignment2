@@ -1,0 +1,48 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 14px;
+}
+
+body {
+	background: radial-gradient(circle, #FFFFFF 0%, #8E8E8E 17%, #202020 100%);
+}
+
+.analog-clock{
+	width: 630px;
+	height: 630px;
+
+}
+
+#clock-face{
+	stroke: black;
+	stroke-width: 20px;
+	fill: lightblue;
+}
+
+#num{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 50px
+}
+
+#h-hand,#m-hand,#s-hand,#s-tail{
+	stroke: black;
+	stroke-linecap: round;
+}
+
+#h-hand{
+	stroke-width: 9px;
+}
+
+#m-hand{
+	stroke-width: 6px;
+}
+
+#s-hand,#s-tail{
+	stroke-width: 3px;
+}
+
+.time-text{
+	text-align: center;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>XKCD comic</title>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<style type="text/css">
+    body { text-align: center; }
+    #image { border: 1px solid #888; padding: 10px; }
+    #transcript, #mouseover { width: 50%; text-align: left; margin-left: 25%; }
+    input { width: 52pt; }
+</style>
+
+<script type="text/javascript" src="extractAPI.js" ></script>
+</head>
+
+<body onload="build_script('');">
+<h2 id="title"></h2>
+
+<h3>
+<input type="button" value="prev" onclick="setnum(-1);">
+<span id="num"></span>
+<input type="button" value="next" onclick="setnum(1);">
+</h3>
+
+<div id="date"></div>
+<br>
+<img id="image">
+<!-- 
+<h3>Mouseover text</h3>
+<div id="mouseover"></div>
+<hr>
+
+<h3>Transcript</h3>
+<div id="transcript"></div>
+<br>
+<a id=original></a> -->
+<br>
+
+Number<br>
+<input type="button" value="prev" onclick="setnum(-1);">
+<input type="text" id="inum" value="" onchange="setnum(0);">
+<input type="button" value="next" onclick="setnum(1);">
+<br>
+<input type="button" value="random" onclick="random();">
+
+<br><br>
+</body>
+</html>
+
+<!-- ref : http://forums.xkcd.com/viewtopic.php?t=3095 -->

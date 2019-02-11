@@ -1,0 +1,104 @@
+<html>
+<head>
+  <title>TryitYourself</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="SHORTCUT ICON" href="A.png"/>
+  <style type="text/css">
+    body{font-size:15px;color:#222;line-height:35px;font-family:sans-serif}
+    #myContentHolder{background-color:lightgray}
+    .df{min-height:100px;width:100%;float:left;background-color:#1245}
+    .myIframecontainer,.myTextareacontainer{float:left;height:85%;width:50%}
+    .myIframe,.myTextarea{height:85%;padding:15px}
+    .myF_lft{float:left;padding-left:15px}
+    .myF_rgt{float:right;padding-right:15px}
+    #myIframewrapper,#myTextareawrapper{background-color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);float:left;height:470px;margin-bottom:25px;margin-top:5px;width:100%}
+    #myTextareaCode{background-color:#fff;border:none;font-family:consolas,"courier new",monospace;font-size:15px;height:100%;padding:8px;resize:none;width:100%;float:left}
+    .vkHeader{float:left;height:25px;margin-bottom:10px;width:100%;}
+    #iframeresult,#iframeSource{background-color:#fff;height:100%;width:100%}
+    .btnRunCode,.clear{background-color:green;border:none;border-radius:2px;color:#fff;cursor:pointer;padding:10px;padding-right:10px;padding-left:10px;transition:background-color .3s ease 0s}
+    .btnRunCode:hover{background-color:red}
+  </style>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div>
+    <div>
+      <div class="df">
+        <center>
+          <div style="font-family:consolas;text-shadow: 2px 2px #548545">
+            <h1>Online HTML,JQuery editor</h1>
+          </div>
+        </center>
+      </div>
+
+      <div class="df" id="myContentHolder">
+        <div class="myTextareacontainer">
+          <div class="myTextarea">
+
+            <div class="vkHeader">
+              <div class="myF_lft">Write your Code : </div>
+              <div class="myF_rgt"> <button class="btnRunCode" type="button" onclick="runCode_1()"><b>Run >></b></button></div>
+              <div class="myF_rgt"> <button class="clear" type="button" style="background-color:#1789E1;" onclick="clearInput()">Clear all</button></div>
+              <div class="myF_rgt"> <button class="clear" type="button" style="background-color:#8589E1" onclick="testCode()">Sample Code</button></div>
+            </div>
+
+            <div id="myTextareawrapper">
+              <textarea class="code_input" spellcheck="false" id="myTextareaCode" autocomplete="off"><h1>Aniket</h1></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="myIframecontainer">
+          <div class="myIframe">
+            <div class="vkHeader">
+              <div class="myF_lft">Result : </div>
+              <div class="myF_rgt"> <button class="btnRunCode" type="button" style="background-color:#1789E1" onclick="clearOutput()">Clear all</button></div>
+            </div>
+
+
+            <div id="myIframewrapper"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <style type="text/css">.td-main-content-wrap .td-container{width:100%!important;}</style>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){});
+
+        function runCode_1()  {
+  
+            var text = document.getElementById("myTextareaCode").value;
+            var ifr = document.createElement("iframe");
+            ifr.setAttribute("frameborder","0");
+            ifr.setAttribute("id", "iframeResult");
+            document.getElementById("myIframewrapper").innerHTML = "";
+            document.getElementById("myIframewrapper").appendChild(ifr);
+            var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document :ifr.contentDocument;
+            ifrw.document.open();
+            ifrw.document.write(text);
+            ifrw.document.close();
+            if (ifrw.document.body && !ifrw.document.body.isContentEditable) {
+                ifrw.document.body.isContentEditable = true;
+                ifrw.document.body.isContentEditable = false;
+            }
+        }
+    runCode_1();
+  
+    function clearInput(){
+      document.getElementById("myTextareaCode").value = "";
+    }
+
+    function clearOutput(){
+      document.getElementById("myIframewrapper").innerHTML = "";
+    }
+
+    function testCode(){
+      document.getElementById("myTextareaCode").value = "<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n\n<h1>This is a Heading</h1>\n<p>This is a paragraph.</p>\n\n</body>\n</html>\n"
+    }
+
+  </script>
+</body>
+</html>
